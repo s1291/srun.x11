@@ -13,4 +13,6 @@ proper X11 forwarding enabled.
 Scripts were written by  Pär Andersson (National Supercomputer Centre, Sweden)
 and published in the SLURM FAQ.
 
+Adapted by the Scientifing Computing staff from the University of Oldenburg.
+Contact: [hpcsupport@uol.de](mailto:hpcsupport@uol.de).
 ==

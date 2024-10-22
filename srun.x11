@@ -1,10 +1,12 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
-# Author: Pär Andersson (National Supercomputer Centre, Sweden)
+# Original Author: Pär Andersson (National Supercomputer Centre, Sweden)
 # Version: 0.3 2007-07-30
 #
 # 2011-06-23: Joerg Bornschein <bornschein@fias.uni-frankfurt.de>
 #   Make this script find its own path
+#
+# Adapted by the Scientific Computing staff from the University of Oldenburg
 #
 # This will submit a batch script that starts screen on a node.
 # Then ssh is used to connect to the node and attach the screen.
@@ -27,11 +29,11 @@ JOB=`sbatch --output=/dev/null --error=/dev/null $@ $BS 2>&1 \
     | egrep -o -e "\b[0-9]+$"`
 
 # Make sure the job is always canceled
-trap "{ /usr/bin/scancel -Q $JOB; exit; }" SIGINT SIGTERM EXIT
+trap "{ scancel -Q $JOB; exit; }" SIGINT SIGTERM EXIT
 
 echo "Waiting for JOBID $JOB to start"
 while true;do
-    sleep 1s
+    sleep 2s
 
     # Check job status
     STATUS=`squeue -j $JOB -t PD,R -h -o %t`
