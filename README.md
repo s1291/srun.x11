@@ -1,4 +1,4 @@
-# PURPOSE & USAGE
+# Purpose & Usage
 
 Interactive shell with X11 forwarding for SLURM.
 
